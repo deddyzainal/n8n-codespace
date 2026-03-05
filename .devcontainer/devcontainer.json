@@ -1,8 +1,9 @@
 {
   "name": "n8n Workspace",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "n8n",
-  "workspaceFolder": "/home/node/.n8n",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -21,5 +22,6 @@
       "onAutoForward": "notify"
     }
   },
+  "postCreateCommand": "docker compose up -d",
   "postStartCommand": "echo '🚀 n8n is ready at http://localhost:5678'"
 }
